@@ -1,0 +1,34 @@
+body, .table {
+	background-color: #EDF2F4;
+	color: #6d6d6d;
+}
+
+.container {
+	padding: 40px 100px;
+}
+
+.population-plot svg {
+	display: block;
+	margin: auto;
+}
+
+.barchart rect:hover {
+	opacity: 70%;
+	cursor: pointer;
+}
+
+.barchart text:hover {
+	cursor: pointer;
+}
+
+.table {
+	align-self: right;
+}
+
+.building {
+	font-size: 26px;
+}
+
+.image {
+	max-height: 200px;
+}

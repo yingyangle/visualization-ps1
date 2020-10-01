@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Population in European Countries</title>
+	<link rel="icon" type="image/x-icon" href="https://www.flaticon.com/svg/static/icons/svg/2909/2909523.svg">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="container">
+
+		<!-- title -->
+		<h2 class="text-center">Population in European Countries</h2>
+		<div class="city-count text-center"></div>
+
+		<!-- SCATTER PLOT -->
+		<div class="population-plot"></div>
+
+
+		<!-- title -->
+		<br><br><br>
+		<h2 class="text-center">Tallest Buildings in the World</h2>
+		<br><br>
+
+		<div class="row">
+			<div class="col-6">
+				<!-- BAR CHART -->
+				<div class="barchart"></div>
+			</div>
+			<div class="col-1"></div>
+			<div class="col-5">
+				<!-- INFO TABLE -->
+				<table class="table">
+					<thead>
+						<tr></tr>
+						<div class="building text-center">Building</div><br>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Country</td>
+							<td><div class="country"></div></td>
+						</tr>
+						<tr>
+							<td>City</td>
+							<td><div class="city"></div></td>
+						</tr>
+						<tr>
+							<td>Height</td>
+							<td><div class="height"></div></td>
+						</tr>
+						<tr>
+							<td>Floors</td>
+							<td><div class="floors"></div></td>
+						</tr>
+						<tr>
+							<td>Year Completed</td>
+							<td><div class="completed"></div></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="text-center">
+					<img class="image">
+				</div>
+				
+				
+			</div>
+		</div>
+		
+	</div>
+
+	<!-- SCRIPTS -->
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="script.js" async defer></script>
+</body>
+
+</html>
