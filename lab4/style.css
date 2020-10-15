@@ -1,0 +1,29 @@
+
+body {
+	color: #6d6d6d;
+	font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+	margin: 50px;
+}
+
+.mytooltip {
+	position: fixed;
+	display: block;
+}
+
+/* axis lines */
+.axis path,
+.axis line { 
+	fill: none;
+	stroke: #6d6d6d;
+	shape-rendering: crispEdges;
+}
+
+/* axis labels */
+.axis text {
+	font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-size: 11px;
+}
+
