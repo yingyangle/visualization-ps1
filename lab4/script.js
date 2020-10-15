@@ -63,9 +63,9 @@ d3.csv('wealth-health-2014.csv', d3.autoType)
 		colorScale = d3.scaleOrdinal(d3.schemeTableau10)
 
 		// circle size
-		const areaScale = d3.scalePow().exponent(0.5)
-			.domain([0, d3.max(data, d => d.Population)])
-			.range([1, 3 * 10])
+		const sizeScale = d3.scaleSqrt()
+			.domain(d3.extent(data, d => d.Population))
+			.range([1, 28])
 
 		// scatter plot circles
 		svg.selectAll('circle')
@@ -74,7 +74,7 @@ d3.csv('wealth-health-2014.csv', d3.autoType)
 			.append('circle')
 			.attr('cx', d => xScale(d.Income))
 			.attr('cy', d => yScale(d.LifeExpectancy))
-			.attr('r', d => areaScale(d.Population))
+			.attr('r', d => sizeScale(d.Population))
 			.attr('fill', d => colorScale(d.Region))
 			.attr('fill-opacity', 0.8)
 			.on('mouseenter', (event, d) => {
@@ -124,6 +124,8 @@ d3.csv('wealth-health-2014.csv', d3.autoType)
 			.attr('x', width - 110)
 			.attr('y', (d, i) => height + i * 20 - 131)
 			.attr('font-size', '10px')
+			.attr('fill', '#6d6d6d')
+			.attr('font-family', 'Lucida Grande')
 			.attr('text-anchor', 'beginning')
 
 })
