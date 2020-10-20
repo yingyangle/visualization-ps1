@@ -25,7 +25,6 @@ function filterData(category) {
 	renderBarChart(chart_data);
 }
 
-
 // define an event listener for the dropdown menu
 // call filterData with the selected category
 document.querySelector('#attraction-category').addEventListener('change', function() {

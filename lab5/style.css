@@ -41,6 +41,11 @@ button:hover, button:focus {
 	border-color: transparent;
 }
 
+/* dropdown arrow */
+.user-control #category {
+	background: transparent;
+}
+
 /* axis lines */
 .axis path,
 .axis line { 
@@ -54,6 +59,7 @@ button:hover, button:focus {
 	font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 11px;
 }
+
 
 
 
