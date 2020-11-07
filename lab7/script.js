@@ -29,7 +29,7 @@ Promise.all([ // load multiple files
 	var map = svg.append('path')
 		.datum(worldmap_data)
 		.attr('d', path)
-		.attr('fill', 'lightgray')
+		.attr('fill', '#e3e3e3')
 		.style('opacity', 0)
 
 	var map_boundaries = svg.append('path')
@@ -57,14 +57,14 @@ Promise.all([ // load multiple files
 		.data(airports.links)
 		.enter()
 		.append('line')
-		.style('stroke', 'gray')
+		.style('stroke', '#9d9d9d')
 	
 	var nodes = svg.selectAll('circle')
 		.data(airports.nodes)
 		.enter()
 		.append('circle')
 		.attr('r', d => circleScale(d.passengers))
-		.style('fill', 'rgb(131, 179, 176)')
+		.style('fill', 'rgb(139, 189, 186)')
 		.call(drag(force))
 		
 	nodes.append('title')

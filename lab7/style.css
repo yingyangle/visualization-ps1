@@ -1,20 +1,12 @@
 body {
 	color: #5b5b5b;
-	background-color: #e6e6e6;
+	background-color: #f7f7f7;
 	font-family: 'Nunito Sans', sans-serif;
 	text-align: center;
 }
 
 #container {
 	margin: 50px;
-}
-
-a {
-	color: rgb(122, 165, 162);
-}
-
-a:hover {
-	color: rgb(131, 179, 176);
 }
 
 input {

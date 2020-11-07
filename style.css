@@ -1,0 +1,29 @@
+body {
+	color: #5b5b5b;
+	font-family: 'Nunito Sans', sans-serif;
+	text-align: center;
+}
+
+#container {
+	margin: 50px;
+}
+
+a {
+	font-size: 18px;
+	color: #79b7bb;
+	line-height: 40px;
+}
+
+a:hover {
+	color: #79b7bb;
+}
+
+.image-container {
+	display: none;
+	position: fixed;
+	left: 30px;
+}
+
+img {
+	width: 300px;
+}
