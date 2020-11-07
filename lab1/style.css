@@ -1,57 +1,57 @@
 body {
-    font-family: Cambria, serif;
+	font-family: Cambria, serif;
 }
 
 .row {
-    margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 
 #top-bar {
-    background-color: rgb(138, 16, 11);
-    min-height: 100px;
-    margin-bottom: 50px;
-    display: flex;
-    align-items:center;
+	background-color: rgb(138, 16, 11);
+	min-height: 100px;
+	margin-bottom: 50px;
+	display: flex;
+	align-items:center;
 }
 
 #title {
-    color: white; 
-    margin: auto;
+	color: white; 
+	margin: auto;
 }
 
 img {
-    width: 90%;
-    margin: 20px 0;
+	width: 90%;
+	margin: 20px 0;
 }
 
 a:hover {
-    color: rgb(178, 157, 108);
+	color: rgb(178, 157, 108);
 }
 
 .btn {
-    background-color: rgb(178, 157, 108);
-    color: white;
-    font-size: 20px;
-    border-radius: 0;
-    margin: 30px;
-    padding: 10px 20px;
-    opacity: 70%;
-    transition: 0.2s;
+	background-color: rgb(178, 157, 108);
+	color: white;
+	font-size: 20px;
+	border-radius: 0;
+	margin: 30px;
+	padding: 10px 20px;
+	opacity: 70%;
+	transition: 0.2s;
 }
 
 .button:hover {
-    color: white;
-    opacity: 100%;
-    transition: 0.2s;
+	color: white;
+	opacity: 100%;
+	transition: 0.2s;
 }
 
 #content p {
-    color: white;
-    background-color: rgb(178, 157, 108);
-    border-radius: 10px;
-    margin: 20px;
-    padding: 10px;
-    opacity: 70%;
+	color: white;
+	background-color: rgb(178, 157, 108);
+	border-radius: 10px;
+	margin: 20px;
+	padding: 10px;
+	opacity: 70%;
 }
 
 

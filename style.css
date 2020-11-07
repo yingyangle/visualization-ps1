@@ -21,9 +21,32 @@ a:hover {
 .image-container {
 	display: none;
 	position: fixed;
-	left: 30px;
 }
 
 img {
-	width: 300px;
+	opacity: 0.8;
+}
+
+/* MEDIA QUERIES */
+
+/* smaller screen */
+@media only screen and (max-width: 1230px) {
+	.image-container {
+		bottom: 20px;
+	}
+
+	img {
+		width: 260px;
+	}
+}
+
+/* larger screen */
+@media only screen and (min-width: 1230px) {
+	.image-container {
+		left: 20px;
+	}
+
+	img {
+		width: 300px;
+	}
 }
