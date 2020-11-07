@@ -25,7 +25,7 @@ const xScale = d3.scaleBand()
 	.paddingInner(0.1)
 
 const yScale = d3.scaleLinear()
-	.rangeRound([0, height])
+	.rangeRound([height, 0])
 
 svg.append('g').attr('class', 'axis y-axis')
 svg.append('g').attr('class', 'axis x-axis')
@@ -35,7 +35,6 @@ yAxisLabel = svg.append('text')
 	.attr('y', -10)
 	.attr('fill', '#876957')
 	.text('Number of Stores')
-
 
 //////////////////// CHART UPDATE FUNCTION ////////////////////
 
@@ -50,7 +49,7 @@ function update(data, category){
 
 	// update domains
 	xScale.domain(data.map(d => d.company))
-	yScale.domain(d3.extent(data, d => d[category]))
+	yScale.domain([0, d3.max(data, d => d[category])])
 
 	const xAxis = d3.axisBottom().scale(xScale).ticks(5, 's')
 	const yAxis = d3.axisLeft().scale(yScale).ticks(5, 's')
@@ -63,21 +62,21 @@ function update(data, category){
 
 	svg.select('.x-axis')
 		.transition()
-		.duration(1000)
+		.duration(700)
 		.attr('transform', `translate(0, ${height})`)
 		.call(xAxis)
 
 	svg.select('.y-axis')
 		.transition()
-		.duration(900)
+		.duration(700)
 		.call(yAxis)
 	
 	svg.selectAll('rect')
 		.transition() 
-		.duration(1000)
+		.duration(700)
 		.attr('x', d => xScale(d.company))
-		.attr('y', d => height - yScale(d[category]))
-		.attr('height', d => yScale(d[category]))
+		.attr('y', d => yScale(d[category]))
+		.attr('height', d => height - yScale(d[category]))
 		.attr('width', 50)
 }
 	
@@ -108,8 +107,8 @@ d3.csv('coffee-house-chains.csv', d3.autoType).then(data => {
 		.attr('class', 'rect')
 		.attr('fill', '#876957')
 		.attr('x', d => xScale(d.company))
-		.attr('y', d => height - yScale(d[category]))
-		.attr('height', d => yScale(d[category]))
+		.attr('y', d => yScale(d[category]))
+		.attr('height', d => height - yScale(d[category]))
 		.attr('width', 50)
 
 	update(data, category)

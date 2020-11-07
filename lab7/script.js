@@ -2,8 +2,8 @@ var displayType = 'force'
 
 const m = 80
 const margin = ({ top: m, right: m, bottom: m, left: m })
-const width = 800 - margin.left - margin.right
-const height = 500 - margin.top - margin.bottom
+const width = 900 - margin.left - margin.right
+const height = 600 - margin.top - margin.bottom
 
 var svg = d3.selectAll('#chart')
 	.append('svg')
