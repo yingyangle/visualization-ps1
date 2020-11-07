@@ -1,0 +1,28 @@
+body {
+	color: #5b5b5b;
+	background-color: #e6e6e6;
+	font-family: 'Nunito Sans', sans-serif;
+	text-align: center;
+}
+
+#container {
+	margin: 50px;
+}
+
+a {
+	color: rgb(122, 165, 162);
+}
+
+a:hover {
+	color: rgb(131, 179, 176);
+}
+
+input {
+	margin-left: 20px;
+	display: inline;
+}
+
+label {
+	display: inline;
+}
+
