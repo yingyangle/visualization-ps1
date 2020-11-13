@@ -2,7 +2,7 @@
 const m = 50
 const margin = ({ top: m, right: m, bottom: m, left: m })
 const width = 1100 - margin.left - margin.right
-const height = 700 - margin.top - margin.bottom
+const height = 600 - margin.top - margin.bottom
 
 d3.csv('driving.csv', d3.autoType).then(data => {
 
@@ -106,27 +106,25 @@ d3.csv('driving.csv', d3.autoType).then(data => {
 		.attr('r', 4.2)
 		.attr('stroke', 'black')
 		.attr('fill', 'white')
-	
-	// circle labels
-	var labels = svg.append('g')
-		.attr('class', 'labels')
-		.selectAll('text')
-		.data(data)
-		.enter()
-		.append('text')
-		.attr('x', d => xScale(d.miles))
-		.attr('y', d => yScale(d.gas))
-		.text(d => d.year)
-		.attr('font-size', 14)
+
+	const labels = svg.append('g')
+		.attr('font-family', 'sans-serif')
+		.attr('font-size', 12)
 		.attr('fill', '#5b5b5b')
-		.each(position)
+		.selectAll('g')
+		.data(data)
+		.join('g')
+		.attr('transform', d => `translate(${xScale(d.miles)},${yScale(d.gas)})`)
 		.attr('opacity', 0)
+  
+	labels.append('text')
+		.text(d => d.year)
+		.each(position)
 		.call(halo)
-	
+
 	labels.transition()
-		.delay((d, i) => length(line(data.slice(0, i + 1))) / len * (4000))
+		.delay((d, i) => length(line(data.slice(0, i + 1))) / len * (3900))
 		.attr('opacity', 1)
-		.attr('fill', 'black')
 
 	function position(d) {
 		const t = d3.select(this)
