@@ -11,6 +11,7 @@ var viz = {
 		{
 			"width": 680,
 			"height": 400,
+			"title": "Deaths and Positive Cases in U.S. States",
 			"mark": {
 				"type": "circle",
 				"size": 80,
@@ -73,14 +74,16 @@ var viz = {
 							"selection": "brush", 
 							"field": {"repeat": "repeat"},
 							"type": "quantitative",
-							"scale": {"scheme": "purplebluegreen"}
+							"scale": {"scheme": "purplebluegreen"},
+							"title": ""
 						},
 						"value": "#e1e1e1"
 					},
-					"tooltip": {
-						"field": {"repeat": "repeat"}, 
-						"type": "quantitative"
-					}
+					"tooltip": [
+						{"field": "state", "type": "nominal", "title": "State"},
+						{"field": {"repeat": "repeat"}, 
+						"type": "quantitative"}
+					]
 				},
 				"transform": [
 					{
