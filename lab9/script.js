@@ -9,7 +9,7 @@ var viz = {
 	"vconcat": [
 		// SCATTER PLOT
 		{
-			"width": 500,
+			"width": 680,
 			"height": 400,
 			"mark": {
 				"type": "circle",
@@ -51,36 +51,53 @@ var viz = {
 			}
 		},
 
-		// BAR CHART
+		// MAP
 		{
 			"repeat": ["hospitalizedCumulative", "recovered"],
-			"columns": 1,
+			"columns": 2,
 			"spec":{
-				"width": 500,
-				"height": 200,
+				"width": 300,
+				"height": 300,
+				"projection": {"type": "albersUsa"},
 				"mark": {
-						"type": "bar",
-						"color": "#79b7bb",
+						"type": "geoshape",
 						"tooltip": true
 				},
 				"encoding": {
-					"x": {
-						"field": "state",
-						"type": "nominal",
-						"title": "State"
+					"shape": {
+						"field": "geo",
+						"type": "geojson"
 					},
-					"y": {
-						"field": {"repeat": "repeat"},
-						"type": "quantitative"
+					"color": {
+						"condition": { 
+							"selection": "brush", 
+							"field": {"repeat": "repeat"},
+							"type": "quantitative",
+							"scale": {"scheme": "purplebluegreen"}
+						},
+						"value": "#e1e1e1"
 					},
 					"tooltip": {
 						"field": {"repeat": "repeat"}, 
 						"type": "quantitative"
 					}
 				},
-				"transform": [{
-					"filter": {"selection": "brush"}
-				}] 
+				"transform": [
+					{
+						"lookup": "fips",
+						"from": {
+								"data": {
+									"url": "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json",
+									"format": {
+									"type": "topojson",
+										"feature": "states"
+									}
+								},
+								"key": "id"
+							},
+						"as": "geo"
+					}
+				]
 			}
 		}
 
