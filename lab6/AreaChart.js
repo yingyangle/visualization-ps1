@@ -2,15 +2,16 @@ export default function AreaChart(container){
 	// initialization
 	// input: selector for a chart container, e.g. '.chart'
 	
-	const m = 80
+	const m = 60
 	const margin = ({ top: m, right: m, bottom: m, left: m })
-	const width = 800 - margin.left - margin.right
-	const height = 300 - margin.top - margin.bottom
+	const width = 700 - margin.left - margin.right
+	const height = 200 - margin.top - margin.bottom
 
 	var svg = d3.select(container)
 		.append('svg')
-		.attr('width', width + margin.left + margin.right)
-		.attr('height', height + margin.top + margin.bottom)
+		.attr('viewBox', [0, 0, 
+			width + margin.left + margin.right, 
+			height + margin.top + margin.bottom])
 		.append('g')
 		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
@@ -29,6 +30,7 @@ export default function AreaChart(container){
 		.attr('y', -20)
 		.attr('font-size', 14)
 		.text('Total Unemployment')
+		.attr('fill', '#5b5b5b')
 
 	var xAxis = d3.axisBottom().scale(xScale)
 	var yAxis = d3.axisLeft().scale(yScale).ticks(3, 's')

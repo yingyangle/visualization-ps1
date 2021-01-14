@@ -19,8 +19,7 @@ d3.csv('cities.csv', d=>{
 	const height = 550
 	const svg = d3.select('.population-plot')
 		.append('svg')
-		.attr('width', width)
-		.attr('height', height)
+		.attr('viewBox', [0, 0, width, height])
 
 	// scatter plot circles
 	svg.selectAll('circle')
@@ -67,8 +66,7 @@ d3.csv('buildings.csv', d=>{
 	const height = 600
 	const svg = d3.select('.barchart')
 		.append('svg')
-		.attr('width', width)
-		.attr('height', height)
+		.attr('viewBox', [0, 0, width, height])
 	
 	// bars
 	svg.selectAll('rect')

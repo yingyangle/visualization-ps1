@@ -7,6 +7,10 @@ body {
 	text-align: center;
 }
 
+.row {
+	margin: auto;
+}
+
 #title {
 	font-family: 'Bungee Shade', cursive;
 	font-size: 50px;
@@ -20,7 +24,6 @@ body {
 	position: fixed;
 	display: block;
 }
-
 
 select, select:hover, select:focus {
 	color: #876957;
@@ -61,6 +64,11 @@ button:hover, button:focus {
 }
 
 
+@media only screen and (max-width: 768px) {
+	#container {
+		margin: 10px;
+	}
+}
 
 
 

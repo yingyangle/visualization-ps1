@@ -10,10 +10,11 @@ d3.csv('wealth-health-2014.csv', d3.autoType)
 		
 		const svg = d3.select('.chart')
 			.append('svg')
-			.attr('width', width + margin.left + margin.right)
-			.attr('height', height + margin.top + margin.bottom)
+			.attr('viewBox', [0, 0, 
+				width + margin.left + margin.right, 
+				height + margin.top + margin.bottom])
 			.append('g')
-			.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+			.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
 		const xScale = d3
 			.scaleSqrt()
@@ -78,25 +79,13 @@ d3.csv('wealth-health-2014.csv', d3.autoType)
 			.attr('fill', d => colorScale(d.Region))
 			.attr('fill-opacity', 0.8)
 			.on('mouseenter', (event, d) => {
-				// show tooltip on hover
-				const pos = d3.pointer(event, window)
-				d3.select('.mytooltip')
-					.style('display', 'block')
-					.style('position', 'fixed')
-					.style('padding', '16px')
-					.style('text-align', 'left')
-					.style('background-color', '#6d6d6d')
-					.style('color', 'white')
-					.style('opacity', '0.8')
-					.style('top', pos[1] + 'px')
-					.style('left', pos[0] + 'px')
-					.html(
-						'<p id="mytooltip">Country: ' +d.Country +
-						'<br>Region: ' + d.Region +
-						'<br>Population: ' + d3.format(',.3r')(d.Population) +
-						'<br>Income: $' + d3.format(',.1r')(d.Income) +
-						'<br>Life Expectancy: ' + d.LifeExpectancy + ' years</p>'
-					)
+				showTooltip(event, d)
+			})
+			.on('mousemove', (event, d) => {
+				showTooltip(event, d)
+			})
+			.on('mouseover', (event, d) => {
+				showTooltip(event, d)
 			})
 			.on('mouseleave', (event, d) => { 
 				// hide tooltip on hover out
@@ -127,5 +116,27 @@ d3.csv('wealth-health-2014.csv', d3.autoType)
 			.attr('fill', '#6d6d6d')
 			.attr('font-family', 'Lucida Grande')
 			.attr('text-anchor', 'beginning')
+
+		// show tooltip
+		function showTooltip(event, d) {
+			const pos = d3.pointer(event, window)
+			d3.select('.mytooltip')
+				.style('display', 'block')
+				.style('position', 'fixed')
+				.style('padding', '16px')
+				.style('text-align', 'left')
+				.style('background-color', '#6d6d6d')
+				.style('color', 'white')
+				.style('opacity', '0.8')
+				.style('top', pos[1] + 'px')
+				.style('left', pos[0] + 'px')
+				.html(
+					'<p id="mytooltip">Country: ' +d.Country +
+					'<br>Region: ' + d.Region +
+					'<br>Population: ' + d3.format(',.3r')(d.Population) +
+					'<br>Income: $' + d3.format(',.1r')(d.Income) +
+					'<br>Life Expectancy: ' + d.LifeExpectancy + ' years</p>'
+				)
+		}
 
 })

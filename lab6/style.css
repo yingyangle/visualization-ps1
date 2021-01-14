@@ -17,3 +17,13 @@ a {
 a:hover {
 	color: rgb(131, 179, 176);
 }
+
+svg {
+	max-width: 900px;
+}
+
+@media only screen and (max-width: 768px) {
+	#container {
+		margin: 20px;
+	}
+}

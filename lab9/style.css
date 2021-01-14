@@ -9,6 +9,14 @@ body {
 	margin: 50px;
 }
 
+#viz {
+	padding: 20px;
+}
+
+summary {
+	display: none;
+}
+
 a {
 	color: #79b7bb;
 	line-height: 40px;

@@ -1,15 +1,17 @@
 var displayType = 'force'
 
-const m = 80
+const m = 10
 const margin = ({ top: m, right: m, bottom: m, left: m })
 const width = 900 - margin.left - margin.right
 const height = 600 - margin.top - margin.bottom
 
 var svg = d3.selectAll('#chart')
 	.append('svg')
-	.attr('width', width)
-	.attr('height', height)
-	.attr('viewBox', [0, 0, width, height]) 
+	.attr('viewBox', [0, 0, 
+		width + margin.left + margin.right, 
+		height + margin.top + margin.bottom])
+	.append('g')
+	.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
 var circleScale = d3.scaleLinear().range([0, 9])
 
