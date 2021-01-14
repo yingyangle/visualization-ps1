@@ -78,18 +78,32 @@ d3.csv('wealth-health-2014.csv', d3.autoType)
 			.attr('r', d => sizeScale(d.Population))
 			.attr('fill', d => colorScale(d.Region))
 			.attr('fill-opacity', 0.8)
-			.on('mouseenter', (event, d) => {
-				showTooltip(event, d)
+			.on('mouseover, mouseenter', (event, d) => {
+				// show tooltip
+				var pos = d3.pointer(event, window)
+				d3.select('.mytooltip')
+					.style('opacity', 0.8)
+					.style('top', pos[1] + 10 + 'px')
+					.style('left', pos[0] + 10 + 'px')
+					.html(
+						'<p id="mytooltip">Country: ' +d.Country +
+						'<br>Region: ' + d.Region +
+						'<br>Population: ' + d3.format(',.3r')(d.Population) +
+						'<br>Income: $' + d3.format(',.1r')(d.Income) +
+						'<br>Life Expectancy: ' + d.LifeExpectancy + ' years</p>'
+					)
 			})
 			.on('mousemove', (event, d) => {
-				showTooltip(event, d)
+				// show tooltip
+				var pos = d3.pointer(event, window)
+				d3.select('.mytooltip')
+					.style('top', pos[1] + 10 + 'px')
+					.style('left', pos[0] + 10 + 'px')
+					.style('opacity', 0.8)
 			})
-			.on('mouseover', (event, d) => {
-				showTooltip(event, d)
-			})
-			.on('mouseleave', (event, d) => { 
-				// hide tooltip on hover out
-				d3.select('.mytooltip').style('display', 'none')
+			.on('mouseout, mouseleave', (event, d) => { 
+				// hide tooltip
+				d3.select('.mytooltip').style('opacity', 0)
 			})
 		
 		// legend boxes
@@ -116,27 +130,5 @@ d3.csv('wealth-health-2014.csv', d3.autoType)
 			.attr('fill', '#6d6d6d')
 			.attr('font-family', 'Lucida Grande')
 			.attr('text-anchor', 'beginning')
-
-		// show tooltip
-		function showTooltip(event, d) {
-			const pos = d3.pointer(event, window)
-			d3.select('.mytooltip')
-				.style('display', 'block')
-				.style('position', 'fixed')
-				.style('padding', '16px')
-				.style('text-align', 'left')
-				.style('background-color', '#6d6d6d')
-				.style('color', 'white')
-				.style('opacity', '0.8')
-				.style('top', pos[1] + 'px')
-				.style('left', pos[0] + 'px')
-				.html(
-					'<p id="mytooltip">Country: ' +d.Country +
-					'<br>Region: ' + d.Region +
-					'<br>Population: ' + d3.format(',.3r')(d.Population) +
-					'<br>Income: $' + d3.format(',.1r')(d.Income) +
-					'<br>Life Expectancy: ' + d.LifeExpectancy + ' years</p>'
-				)
-		}
 
 })

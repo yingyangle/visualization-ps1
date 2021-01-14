@@ -16,8 +16,14 @@ svg {
 }
 
 .mytooltip {
-	position: fixed;
+	position: absolute;
 	display: block;
+	padding: 16px;
+	text-align: left;
+	background-color: #6d6d6d;
+	color: white;
+	opacity: 0;
+	transition: opacity 0.2s;
 }
 
 /* axis lines */
