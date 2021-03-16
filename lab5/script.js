@@ -39,7 +39,7 @@ yAxisLabel = svg.append('text')
 
 //////////////////// CHART UPDATE FUNCTION ////////////////////
 
-function update(data, category){
+function update(data, category) {
 
 	// update data
 	category = document.querySelector('#category').value

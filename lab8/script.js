@@ -68,7 +68,7 @@ d3.csv('driving.csv', d3.autoType).then(data => {
 		.attr('text-anchor', 'end')
 		.attr('font-size', 14)
 		.attr('fill', '#5b5b5b')
-		.text('Miles per person per year')
+		.text('Miles driven per person')
 		.call(halo)
 
 	// line
